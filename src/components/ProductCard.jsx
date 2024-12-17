@@ -1,6 +1,6 @@
 import React from "react";
 
-const ProductCard = ({ product, addToCart }) => {
+const ProductCard = ({ product, addToCart}) => {
   return (
     <div className="border flex flex-col gap-2 p-4 shadow-lg bg-white rounded-md">
       <img

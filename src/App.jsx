@@ -3,12 +3,19 @@ import Navbar from "./components/Navbar";
 import ProductList from "./components/ProductList";
 import CartModal from "./components/CartModal";
 import { fetchProducts } from "./utils/fakeStoreAPI";
+import Loader from "./components/Bars";
 
 const App = () => {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  
+  const [isLoading, setIsLoading] = useState(true);
+
+  setTimeout(() => {
+    if(products) {
+      setIsLoading(false);
+    }
+  }, 3000);
 
   useEffect(() => {
     const loadProducts = async () => {
@@ -17,6 +24,7 @@ const App = () => {
     };
     loadProducts();
   }, []);
+  
 
   const addToCart = (product) => {
     if (cart.find((item) => item.id === product.id)) {
@@ -37,12 +45,27 @@ const App = () => {
         cartCount={cart.length}
         onCartClick={() => setIsModalOpen(true)}
       />
-      <ProductList products={products} addToCart={addToCart} />
+      <div>
+        {isLoading ? (
+          <div className="h-[90vh] flex justify-center items-center">
+            <Loader />
+          </div>
+        ) : (
+          <ProductList
+            products={products}
+            addToCart={addToCart}
+          />
+        )}
+      </div>
+
       {isModalOpen && (
         <CartModal
           cartItems={cart}
           removeFromCart={removeFromCart}
-          onClose={() => setIsModalOpen(false)}
+          onClose={() => {
+            setIsModalOpen(false)
+          }
+          }
         />
       )}
     </div>
