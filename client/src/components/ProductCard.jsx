@@ -14,7 +14,7 @@ const ProductCard = ({ product, addToCart }) => {
         <p className="text-gray-700">${product.price}</p>
         <div className="flex items-center gap-2">
           <img
-            src={window.location.origin + "/public/star.png"}
+            src={"/src/assets/star.png"}
             className="w-4 h-4"
           />
           <p className="text-base font-medium text-gray-800">{product.rating.rate}</p>
