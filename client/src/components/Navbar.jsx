@@ -12,7 +12,7 @@ const Navbar = ({ cartCount, onCartClick }) => {
         <h1 className="text-2xl text-blue-600 font-semibold"> Fake Store</h1>
       </div>
       <button
-        className="bg-[#ffffff40] px-4 py-2 rounded"
+        className="bg-[#ffffff40] px-4 py-2 font-medium rounded"
         onClick={onCartClick}
       >
         Cart ({cartCount})
