@@ -1,8 +1,11 @@
 import React from "react";
 
-const ProductCard = ({ product, addToCart}) => {
+
+const ProductCard = ({ product, addToCart }) => {  
   return (
-    <div className="border flex flex-col gap-2 p-4 shadow-lg bg-white rounded-md">
+    <div
+      className="border flex flex-col gap-2 p-4 shadow-lg bg-white rounded-md"
+    >
       <img
         src={product.image}
         alt={product.title}
@@ -13,11 +16,10 @@ const ProductCard = ({ product, addToCart}) => {
       <div className="flex justify-between items-center">
         <p className="text-gray-700">${product.price}</p>
         <div className="flex items-center gap-2">
-          <img
-            src={"/star.png"}
-            className="w-4 h-4"
-          />
-          <p className="text-base font-medium text-gray-800">{product.rating.rate}</p>
+          <img src={"/star.png"} className="w-4 h-4" />
+          <p className="text-base font-medium text-gray-800">
+            {product.rating.rate}
+          </p>
         </div>
       </div>
 

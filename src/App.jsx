@@ -11,16 +11,12 @@ const App = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
-  setTimeout(() => {
-    if(products) {
-      setIsLoading(false);
-    }
-  }, 3000);
 
   useEffect(() => {
     const loadProducts = async () => {
       const data = await fetchProducts();
       setProducts(data);
+      setIsLoading(false);
     };
     loadProducts();
   }, []);
